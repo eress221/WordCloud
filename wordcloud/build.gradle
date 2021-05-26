@@ -51,6 +51,17 @@ project.afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
+
+                groupId = 'com.eress.wordcloud'
+                artifactId = 'wordcloud'
+                version = 1.0
+            }
+            debug(MavenPublication) {
+                from components.debug
+
+                groupId = 'com.eress.wordcloud'
+                artifactId = 'wordcloud'
+                version = 1.0
             }
         }
     }
