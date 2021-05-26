@@ -1,5 +1,7 @@
 jdk:
   - openjdk11
+before_install:
+  - chomd +x gradlew
 install:
   - ./gradlew :wordcloud:build :wordcloud:publishToMavenLocal
   - find . -name "*.aar"
