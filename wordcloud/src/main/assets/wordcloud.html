@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Word Cloud</title>
+  <script src="js/d3.js" charset="utf-8"></script>
+  <script src="js/d3.layout.cloud.js"></script>
+  <script src="js/d3.wordcloud.js"></script>
+  <style>
+    * {-webkit-tap-highlight-color:rgba(255,255,255,0);}
+  </style>
+</head>
+<body style="text-align: center">
+  <div id="wordcloud"></div>
+  <script>
+    function load(words, colors) {
+      if (colors == null || colors.length <= 0) {
+        colors = ["#6636B4", "#20BBFC", "#10A778", "#E2B72F"];
+      }
+      d3.wordcloud()
+      .size([window.innerWidth, window.innerHeight])
+      .selector("#wordcloud")
+      .spiral("archimedean")
+      .fill(d3.scale.ordinal().range(colors))
+      .padding(8)
+      .words(words)
+      .onwordclick(function(d, i) {
+        if (d.text && window.AndroidBridge) {
+          window.AndroidBridge.onWordClick(d.text);
+        }
+      })
+      .start();
+    }
+  </script>
+</body>
+</html>
+
