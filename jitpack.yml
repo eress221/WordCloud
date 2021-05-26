@@ -1,0 +1,3 @@
+install:
+  - ./gradlew :wordcloud:build :wordcloud:publishToMavenLocal
+  - find . -name "*.aar"
