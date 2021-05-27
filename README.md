@@ -18,12 +18,12 @@ repositories {
 app gradle dependency
 ```gradle
 dependencies {
+    ...
     implementation 'com.github.eress221:WordCloud:1.0'
 }
 ```
 
-view xml
-layout_width, layout_height는 화면에 표시할 size
+view xml: 감싼 layout의 layout_width, layout_height는 화면에 표시할 크기
 ```xml
 <FrameLayout
     android:layout_width="match_parent"
