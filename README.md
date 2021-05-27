@@ -1,6 +1,81 @@
 # WordCloud
 Android WordCloud
 
+![sample_image_01](sample_image_01.png)
+![sample_image_02](sample_image_02.png)
+
+#  사용법
+root gradle repositories
+```gradle
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+
+app gradle dependency
+```gradle
+dependencies {
+    implementation 'com.github.eress221:WordCloud:1.0'
+}
+```
+
+view xml
+layout_width, layout_height는 화면에 표시할 size
+```xml
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+    <com.eress.wordcloud.WordCloudView
+        android:id="@+id/wc_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp" />
+
+</FrameLayout>
+```
+
+kotlin
+```kotlin
+// Custom WordList
+val wordList = mutableListOf<Word>()
+for (i in 1..100) {
+    test.add(Word(Random().nextInt(100).toString(), 100-i, i))
+}
+val wcView = findViewById(R.id.wc_view)
+wcView.setListener(object : WordCloudListener{
+    override fun onPageFinished(view: WebView) {
+        wcView.setDataSet(wordList)
+    }
+
+    override fun onTouch() {
+
+    }
+
+    override fun onWordClick(word: String) {
+        Toast.makeText(applicationContext, "word: $word", Toast.LENGTH_SHORT).show()
+    }
+})
+```
+
+word
+```kotlin
+word: String? = null
+size: Int = 0
+rank: Int = 0
+color: String? = null
+
+constructor(word: String, size: Int, rank: Int)
+constructor(word: String, size: Int, rank: Int, color: String?)
+```
+
+
+# 라이브러리 및 참고자료
+- [d3-wordcloud](https://github.com/wvengen/d3-wordcloud)
+- [AndroidWordCloud](https://github.com/alhazmy13/AndroidWordCloud)
+
+
 # License
 ```
 MIT License
