@@ -1,8 +1,9 @@
 # WordCloud
 Android WordCloud
 
+| --------------------------------------- | --------------------------------------- |
+| ![sample_image_01](sample_image_01.png) | ![sample_image_02](sample_image_02.png) |
 
-![sample_image_01](sample_image_01.png) | ![sample_image_02](sample_image_02.png)
 
 #  사용법
 root gradle repositories
