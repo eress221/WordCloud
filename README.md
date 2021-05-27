@@ -1,6 +1,7 @@
 # WordCloud
 Android WordCloud
 
+| WordCloudView                           | onWordClick                             |
 | --------------------------------------- | --------------------------------------- |
 | ![sample_image_01](sample_image_01.png) | ![sample_image_02](sample_image_02.png) |
 
